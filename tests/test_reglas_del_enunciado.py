@@ -1,6 +1,7 @@
 """Comprueba por codigo las reglas de la seccion G del enunciado.  # LABORATORIO"""
 import ast
 import glob
+import os
 import unittest
 
 # Archivos nuevos del laboratorio: ahi NO puede haber numeros literales.
@@ -33,7 +34,7 @@ class PruebasReglas(unittest.TestCase):
                     self.fail(f"{ruta}:{nodo.lineno} usa sleep")
 
     def test_el_paquete_alertas_tiene_init(self):
-        self.assertIn("alertas/__init__.py", glob.glob("alertas/*.py"))
+        self.assertTrue(os.path.exists(os.path.join("alertas", "__init__.py")))
 
 
 if __name__ == "__main__":
